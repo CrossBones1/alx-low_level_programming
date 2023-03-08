@@ -24,6 +24,7 @@ int helperFunction(int num, int i)
 		return (1);
 	}
 }
+
 /**
  * actual_prime - calculates if a number is prime recursively
  * @n: number to evaluate
