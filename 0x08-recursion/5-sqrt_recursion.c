@@ -1,6 +1,4 @@
 #include "main.h"
-
-int actual_sqrt_recursion(int n, int i);
 /**
   *helperFunction - checks if sqrt of number exists
   *@num: number.
@@ -8,11 +6,20 @@ int actual_sqrt_recursion(int n, int i);
   *
   *Return: sqrt of number ot -1 for error.
   */
-int _sqrt_recursion(int n)
+int helperFunction(int num, int pSqrt)
 {
-	if (n < 0)
-		return (-1);
-	return (actual_sqrt_recursion(n, 0));
+	if ((pSqrt * pSqrt) == num)
+	{
+		return (pSqrt);
+	}
+	else
+	{
+		if ((pSqrt * pSqrt) > num)
+			return (-1);
+		else
+			return (helperFunction(num, pSqrt + 1));
+
+	}
 }
 
 /**
@@ -22,11 +29,10 @@ int _sqrt_recursion(int n)
   *Return: squareroot of n.
   *-1 if n does not have a natural sqrt.
   */
-int actual_sqrt_recursion(int n, int i)
+int _sqrt_recursion(int n)
 {
-	if (i * i > n)
+	if (n < 0)
 		return (-1);
-	if (i * i == n)
-		return (i);
-	return (actual_sqrt_recursion(n, i + 1));
+	else
+		return (helperFunction(n, 0));
 }
