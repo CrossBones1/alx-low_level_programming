@@ -32,14 +32,12 @@ char *str_concat(char *s1, char *s2)
 	if (!ret)
 		return (NULL);
 
-ptr = ret;
+	ptr = ret;
 	while (*s1)
 		*ptr++ = *s1++;
 	while (*s2)
 		*ptr++ = *s2++;
 	*ptr = 0;
 
-	return (ret) ;
-	
-
+	return (ret);
 }
