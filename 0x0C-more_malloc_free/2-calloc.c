@@ -1,5 +1,6 @@
+#include "holberton.h"
+#include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
 
 /**
  * _memset - fills memory with a constant byte.
@@ -11,12 +12,10 @@
 
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int i;
+	char *p = s;
 
-	for (i = 0; i < n; i++)
-	{
-		s[i] = b;
-	}
+	for (; n; n--)
+		*p++ = b;
 
 	return (s);
 }
@@ -30,20 +29,16 @@ char *_memset(char *s, char b, unsigned int n)
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *ptr;
+	void *ptr;
 
-	if (nmemb == 0 || size == 0)
+	if (size == 0 || nmemb == 0)
 		return (NULL);
 
-	ptr = malloc(size * nmemb);
-
+	ptr = malloc(nmemb * size);
 	if (ptr == NULL)
 		return (NULL);
 
-	_memset(ptr, 0, nmemb * size);
+	_memset(ptr, 0, size * nmemb);
 
 	return (ptr);
-}
-
-	return (s);
 }
